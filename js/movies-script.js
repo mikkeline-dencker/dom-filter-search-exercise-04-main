@@ -95,6 +95,44 @@ const movies = [
 
 const moviesContainer = document.querySelector("#movies-container");
 
+//Henter HTML-elementer og gemmer i variabler
+const selectedCategory = document.querySelector("#category-select");
+const searchInput = document.querySelector("#gsearch");
+const form = document.querySelector("form");
+
+function filterMovies() {
+  //Henter den valgte kategori (periode)
+  const selectedValue = selectedCategory.value;
+  //Henter søgeteksten og gør den klar til sammenligning (lowercase og trim)
+  const searchTerm = searchInput.value.toLowerCase().trim();
+
+  //Jeg starter med alle udstillinger fra listen (array - exhibitions)
+  let filteredMovies = movies;
+
+   if (selectedValue != "Alle") {
+     filteredMovies = filteredMovies.filter((item) => {
+       return item.genre === selectedValue;
+     });
+   }
+
+   if (searchTerm != "") {
+     filteredMovies = filteredMovies.filter((item) => {
+       return item.title.toLowerCase().includes(searchTerm);
+     });
+   }
+
+   displayMovies(filteredMovies);
+}
+
+selectedCategory.addEventListener("change", filterMovies);
+searchInput.addEventListener("input", filterMovies);
+
+form.addEventListener("submit", (event) => {
+  event.preventDefault(); // Forhindrer standard formularindsendelse
+  filterMovies();
+});
+
+
 function displayMovies(movieList) {
   moviesContainer.innerHTML += "";
 
