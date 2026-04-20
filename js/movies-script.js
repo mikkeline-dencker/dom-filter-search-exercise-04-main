@@ -4,7 +4,7 @@ const movies = [
   {
     id: 1,
     title: "Inception",
-    genre: "science-fiction",
+    genre: "Science Fiction",
     year: 2010,
     duration: 2.28,
     img: "img/inception.webp",
@@ -13,7 +13,7 @@ const movies = [
   {
     id: 2,
     title: "The Dark Knight",
-    genre: "action",
+    genre: "Action",
     year: 2008,
     duration: 2.32,
     img: "img/the-dark-knight.webp",
@@ -22,7 +22,7 @@ const movies = [
   {
     id: 3,
     title: "Forrest Gump",
-    genre: "drama",
+    genre: "Drama",
     year: 1994,
     duration: 2.22,
     img: "img/forrest-gump.webp",
@@ -31,7 +31,7 @@ const movies = [
   {
     id: 4,
     title: "Superbad",
-    genre: "comedy",
+    genre: "Comedy",
     year: 2007,
     duration: 1.53,
     img: "img/superbad.webp",
@@ -49,7 +49,7 @@ const movies = [
   {
     id: 6,
     title: "The Hangover",
-    genre: "comedy",
+    genre: "Comedy",
     year: 2009,
     duration: 1.4,
     img: "img/the-hangover.webp",
@@ -67,7 +67,7 @@ const movies = [
   {
     id: 8,
     title: "Interstellar",
-    genre: "science-fiction",
+    genre: "Science Fiction",
     year: 2014,
     duration: 2.55,
     img: "img/interstellar.jpg",
@@ -76,7 +76,7 @@ const movies = [
   {
     id: 9,
     title: "The Matrix",
-    genre: "science-fiction",
+    genre: "Science Fiction",
     year: 1999,
     duration: 3.02,
     img: "img/the-matrix.webp",
@@ -85,7 +85,7 @@ const movies = [
   {
     id: 10,
     title: "Pulp Fiction",
-    genre: "drama",
+    genre: "Drama",
     year: 1994,
     duration: 1.39,
     img: "img/pulp-fiction.webp",
@@ -109,19 +109,19 @@ function filterMovies() {
   //Jeg starter med alle udstillinger fra listen (array - exhibitions)
   let filteredMovies = movies;
 
-   if (selectedValue != "Alle") {
-     filteredMovies = filteredMovies.filter((item) => {
-       return item.genre === selectedValue;
-     });
-   }
+  if (selectedValue != "Alle") {
+    filteredMovies = filteredMovies.filter((item) => {
+      return item.genre === selectedValue;
+    });
+  }
 
-   if (searchTerm != "") {
-     filteredMovies = filteredMovies.filter((item) => {
-       return item.title.toLowerCase().includes(searchTerm);
-     });
-   }
+  if (searchTerm != "") {
+    filteredMovies = filteredMovies.filter((item) => {
+      return item.title.toLowerCase().includes(searchTerm);
+    });
+  }
 
-   displayMovies(filteredMovies);
+  displayMovies(filteredMovies);
 }
 
 selectedCategory.addEventListener("change", filterMovies);
@@ -131,7 +131,6 @@ form.addEventListener("submit", (event) => {
   event.preventDefault(); // Forhindrer standard formularindsendelse
   filterMovies();
 });
-
 
 function displayMovies(movieList) {
   moviesContainer.innerHTML += "";
